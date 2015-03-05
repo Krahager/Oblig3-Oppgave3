@@ -3,7 +3,7 @@ package towerOfHanoi;
 import java.util.Scanner;
 
 public class TowerOfHanoi {
-	private static int count;
+	private static int moveCount;
 	/**Hovedmetode */
 	public static void main(String[] args){
 		//Lager en Scanner
@@ -21,12 +21,15 @@ public class TowerOfHanoi {
 	/**Metoden for å finne løsningen for å flytte n disker fra fromTower til toTower med auxTower
 	 * som hjelpetårn*/
 	public static void moveDisks(int n, char fromTower, char toTower, char auxTower){
-		count++;
-		if (n==1) //Stoppkrav
+		if (n==1){ //Stoppkrav
+			moveCount++;
 			System.out.println("Move disk " + n + " from " + fromTower + " to " + toTower);
+		}
 		else{
+			moveCount++;
 			moveDisks(n - 1, fromTower, auxTower, toTower);
 			System.out.println("Flytter disk " + n + " fra " + fromTower + " til " + toTower);
+			moveCount++;
 			moveDisks(n - 1, auxTower, toTower, fromTower);
 		}
 	}

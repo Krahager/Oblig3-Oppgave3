@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 public class SnuTekst {
-	static Scanner s = new Scanner(System.in);
+	private static Scanner s = new Scanner(System.in);
 	public static void main(String[] args){
 		System.out.println("Skriv inn en Streng og trykk enter: ");
 		String input = s.nextLine();

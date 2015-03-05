@@ -37,6 +37,12 @@ public class Ansatt extends Kort implements Fast{
 				"PIN", "Sperret");
 		return label + super.toString();
 	}
+	
+	public Object clone(){
+		Ansatt clone = (Ansatt)super.clone();
+		clone.ansiennitet = ansiennitet;
+		return clone;
+	}
 
 	@Override
 	public void settFornavn(String fornavn) {

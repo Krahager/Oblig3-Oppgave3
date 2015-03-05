@@ -21,6 +21,13 @@ public class Gjest extends Kort{
 			return (super.getPIN() == PIN);
 	}
 	
+	public Object clone(){
+		Gjest clone = (Gjest)super.clone();
+		clone.opprettet = opprettet;
+		clone.utgaar = utgaar;
+		return clone;
+	}
+	
 	@Override
 	public String toString(){
 		SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

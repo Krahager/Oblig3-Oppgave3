@@ -4,7 +4,11 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 @SuppressWarnings("unused")
-public class Ansatt extends Kort{
+public class Ansatt extends Kort implements Fast{
+	private double timelonn;
+	private double timelonnfaktor;
+	private int ansiennitet;
+	private double ansiennitetfaktor;
 	
 	public Ansatt(String forNavn, String etterNavn, int PIN, boolean sperret){
 		super(forNavn, etterNavn, PIN, sperret);
@@ -26,5 +30,73 @@ public class Ansatt extends Kort{
 		String label = String.format("%1$-8s %2$-20s %3$-5s %4$-8s \n", "Kortnmr", "Navn",
 				"PIN", "Sperret");
 		return label + super.toString();
+	}
+
+	@Override
+	public void settFornavn(String fornavn) {
+		super.settFornavn(fornavn);
+		
+	}
+
+	@Override
+	public void settEtternavn(String etternavn) {
+		super.settEtternavn(etternavn);
+		
+	}
+
+	@Override
+	public void setFulltNavn(String navn) {
+		String[] fulltnavn = navn.split(" ");
+		switch(fulltnavn.length){
+			case 1:
+				super.settFornavn(fulltnavn[0]);
+				super.settEtternavn("");
+				break;
+			case 2:		
+				super.settFornavn(fulltnavn[0]);
+				super.settEtternavn(fulltnavn[1]);
+				break;
+			case 3:
+				super.settFornavn(fulltnavn[0]);
+				super.settEtternavn(fulltnavn[1] + " " + fulltnavn[2]);
+				break;
+			default:
+				System.out.println("Recieved an unexpected amount of spaces. Name has not been overwritten");
+		}
+	}
+	
+	public void settTimelonn(double timelonn){
+		this.timelonn = timelonn;
+	}
+
+	@Override
+	public String hentFornavn() {
+		return super.hentFornavn();
+	}
+
+	@Override
+	public String hentEtternavn() {
+		return super.hentEtternavn();
+	}
+
+	@Override
+	public String hentFulltNavn() {
+		return super.getNavn();
+	}
+	
+	public double hentTimelonn(){
+		return this.timelonn;
+	}
+
+	@Override
+	public double beregnKreditt() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double beregnBonus() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

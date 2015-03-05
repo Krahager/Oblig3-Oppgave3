@@ -27,6 +27,14 @@ public abstract class Kort {
 	public String getNavn() {
 		return forNavn + " " + etterNavn;
 	}
+	
+	public String hentFornavn(){
+		return this.forNavn;
+	}
+	
+	public String hentEtternavn(){
+		return this.etterNavn;
+	}
 
 	public boolean isSperret() {
 		return sperret;
@@ -34,6 +42,14 @@ public abstract class Kort {
 	
 	protected int getPIN(){
 		return PIN;
+	}
+	
+	protected void settFornavn(String fornavn){
+		this.forNavn = fornavn;
+	}
+	
+	protected void settEtternavn(String etternavn){
+		this.etterNavn = etternavn;
 	}
 	
 	protected void settSperret(boolean b){

@@ -16,7 +16,16 @@ public class SnuTekst {
 		System.out.print(tekst.charAt(tekst.length()-1));
 		count++;
 		if (tekst.length() > 1)
-			baklengs(tekst.substring(0, tekst.length()-1));
+			baklengs(tekst, tekst.length()-1);
+		else
+			System.out.println();
+	}
+	
+	public static void baklengs(String tekst, int siste){
+		System.out.print(tekst.charAt(siste-1));
+		count++;
+		if (siste > 1)
+			baklengs(tekst, tekst.length()-1);
 		else
 			System.out.println();
 	}

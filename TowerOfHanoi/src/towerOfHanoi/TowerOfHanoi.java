@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TowerOfHanoi {
 	private static int moveCount;
+	private static int calls;
 	/**Hovedmetode */
 	public static void main(String[] args){
 		//Lager en Scanner
@@ -16,11 +17,13 @@ public class TowerOfHanoi {
 		System.out.println("The moves are:");
 		moveDisks(n, 'A', 'B', 'C');
 		System.out.println("\nFerdig flyttet! Antall forflytninger: " + moveCount);
+		System.out.println("Antall metodekall brukt: " + calls);
 	}
 
 	/**Metoden for å finne løsningen for å flytte n disker fra fromTower til toTower med auxTower
 	 * som hjelpetårn*/
 	public static void moveDisks(int n, char fromTower, char toTower, char auxTower){
+		calls++;
 		if (n==1){ //Stoppkrav
 			moveCount++;
 			System.out.println("Flytter disk " + n + " fra " + fromTower + " til " + toTower);

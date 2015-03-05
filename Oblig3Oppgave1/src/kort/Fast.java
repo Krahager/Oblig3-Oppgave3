@@ -1,6 +1,8 @@
 package kort;
 
 public interface Fast {
+	public final double TIMELONNFAKTOR = 1.5;
+	
 	public void settFornavn(String fornavn);
 	
 	public void settEtternavn(String etternavn);

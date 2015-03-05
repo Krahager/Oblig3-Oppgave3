@@ -3,15 +3,21 @@ package kort;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-@SuppressWarnings("unused")
 public class Ansatt extends Kort implements Fast{
 	private double timelonn;
-	private double timelonnfaktor;
-	private int ansiennitet;
-	private double ansiennitetfaktor;
+	private GregorianCalendar ansiennitet;
 	
-	public Ansatt(String forNavn, String etterNavn, int PIN, boolean sperret){
+	public Ansatt(String forNavn, String etterNavn, int PIN, boolean sperret, double timelonn){
 		super(forNavn, etterNavn, PIN, sperret);
+		this.timelonn = timelonn;
+		ansiennitet = new GregorianCalendar();
+	}
+	
+	public Ansatt(String forNavn, String etterNavn, int PIN, boolean sperret, double timelonn,
+			GregorianCalendar ansiennitet){
+		super(forNavn, etterNavn, PIN, sperret);
+		this.timelonn = timelonn;
+		ansiennitet = new GregorianCalendar();
 	}
 	
 	public boolean sjekkPIN(int PIN){
@@ -90,13 +96,12 @@ public class Ansatt extends Kort implements Fast{
 
 	@Override
 	public double beregnKreditt() {
-		// TODO Auto-generated method stub
-		return 0;
+		return timelonn*Fast.TIMELONNFAKTOR;
 	}
 
 	@Override
 	public double beregnBonus() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (new GregorianCalendar().get(Calendar.YEAR) 
+				- ansiennitet.get(Calendar.YEAR)) * Fast.TIMELONNFAKTOR;
 	}
 }

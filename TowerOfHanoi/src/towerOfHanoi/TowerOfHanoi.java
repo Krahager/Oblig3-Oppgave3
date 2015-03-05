@@ -23,10 +23,9 @@ public class TowerOfHanoi {
 	public static void moveDisks(int n, char fromTower, char toTower, char auxTower){
 		if (n==1){ //Stoppkrav
 			moveCount++;
-			System.out.println("Move disk " + n + " from " + fromTower + " to " + toTower);
+			System.out.println("Flytter disk " + n + " fra " + fromTower + " til " + toTower);
 		}
 		else{
-			moveCount++;
 			moveDisks(n - 1, fromTower, auxTower, toTower);
 			System.out.println("Flytter disk " + n + " fra " + fromTower + " til " + toTower);
 			moveCount++;

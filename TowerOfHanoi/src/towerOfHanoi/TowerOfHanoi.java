@@ -1,5 +1,5 @@
-package toweOfHanoi;
+package towerOfHanoi;
 
 public class TowerOfHanoi {
-
+	
 }

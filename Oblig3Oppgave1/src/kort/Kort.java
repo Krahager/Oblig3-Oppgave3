@@ -19,9 +19,7 @@ public abstract class Kort {
 		return String.format("%1$-8s %2$-20s %3$-4s %4$-20s %5$-5s", kortnummer, navn, PIN, sperret);
 	}
 	
-	public boolean sjekkPIN(int PIN){
-		return (this.PIN == PIN);
-	}
+	public abstract boolean sjekkPIN(int PIN);
 	
 	public String getNavn() {
 		return navn;

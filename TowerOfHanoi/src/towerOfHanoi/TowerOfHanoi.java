@@ -15,7 +15,7 @@ public class TowerOfHanoi {
 		//Find the solution recursively
 		System.out.println("The moves are:");
 		moveDisks(n, 'A', 'B', 'C');
-		System.out.println("\nFerdig flyttet! Antall forflytninger: " + count);
+		System.out.println("\nFerdig flyttet! Antall forflytninger: " + moveCount);
 	}
 
 	/**Metoden for å finne løsningen for å flytte n disker fra fromTower til toTower med auxTower
